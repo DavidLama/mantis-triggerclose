@@ -43,13 +43,12 @@ class TriggerCloseApi {
 	 * @return array [int id] => string label
 	 */
 	function available_statuses() {
-		return array(
-			FEEDBACK => 'feedback',
-			ACKNOWLEDGED => 'acknowledged',
-			CONFIRMED => 'confirmed',
-			ASSIGNED => 'assigned',
-			RESOLVED => 'resolved'
-		);
+        $xx = explode(',',lang_get('status_enum_string'));
+		foreach( $xx as $elem ) {
+			$fx = explode(':',$elem);
+			$fy[$fx[0]]=$fx[1];
+		}
+		return $fy;
 	}
 
 	/**
@@ -99,12 +98,14 @@ class TriggerCloseApi {
 
 		$api = new self;
 		try {
-			$closed_issues = $api->auto_close();
+    			$closed_issues = $api->auto_close();
 		} catch(InvalidArgumentException $e) {
+
 			self::cli_message($e->getMessage());
 			exit(1);
 		}
-		self::cli_message(sprintf("Closed %d issues:", count($closed_issues)));
+        $msg = sprintf("Closed %d issues:", count($closed_issues));
+		self::cli_message($msg);
 		foreach($closed_issues as $id => $summary) {
 			self::cli_message(sprintf("%d: %s", $id, $summary));
 		}
@@ -233,6 +234,16 @@ USAGE;
 			return array();
 		}
 		$closed = array();
+
+        # Decode Target Statuses
+        $dc = array();
+        $deco = config_get( 'status_enum_string' );
+        foreach($statuses as $sc)
+        {
+        		$dc[] = MantisEnum::getLabel( $deco, $sc );
+        }	
+        $statusSet = implode(',',$dc);
+        $message = str_ireplace('#STATUS#', $statusSet, $message);
 		while($count--) {
 			$row = db_fetch_array($query);
 			if(!self::$dry_run) {

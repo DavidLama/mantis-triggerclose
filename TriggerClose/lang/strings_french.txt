@@ -1,0 +1,31 @@
+<?php
+
+# Custom strings for english language
+$s_plugin_TriggerClose_config_title = 'Fermeture automatique - Configuration';
+$s_plugin_TriggerClose_title = 'Fermeture automatique';
+$s_plugin_TriggerClose_check_on_page_loads = 'Vérification des déclencheurs au chargement des pages';
+$s_plugin_TriggerClose_enable_cron = 'Sinon, activez un <a href="#cron">cron</a>';
+$s_plugin_TriggerClose_timeout_to_close = "Fermer un ticket qui n'a pas été modifié après (valeur en secondes)";
+
+$s_plugin_TriggerClose_zero_means = "0 signifie que la fonctionnalité est désactivée";
+$s_plugin_TriggerClose_note_when_closing = "Ajout d'une note lors de la fermeture automatique d'un problème";
+
+$s_plugin_TriggerClose_note_text_when_closing = 
+"Le ticket a été fermé automatiquement par le système pour cause d'inactivité. N'hésitez pas fournir des informations supplémentaires si vous pensez que le problème n'est pas résolu.";
+
+$s_plugin_TriggerClose_categories_to_check = 'Catégories à vérifier';
+
+$s_plugin_TriggerClose_privileges = "Fermer les questions assignées à un membre inclus dans les groupes suivants";
+
+$s_plugin_TriggerClose_qty_of_users = 'utilisateurs sont sélectionnés';
+$s_plugin_TriggerClose_statuses_to_check = "Les tickets avec ces états seront vérifiées pour l'inactivité.";
+
+$s_plugin_TriggerClose_close_as_user = "Fermer en tant qu'utilisateur";
+$s_plugin_TriggerClose_save = 'Enregistrer';
+
+$s_plugin_TriggerClose_using_cron = 'Utilisation du Cron';
+$s_plugin_TriggerClose_config_cron = 'Pour configurer le Cron';
+$s_plugin_TriggerClose_cron_line = "*/5 * * * * /usr/bin/env php";
+$s_plugin_TriggerClose_cron_help = "dans une crontab (par exemple, en tapant <pre>crontab -e</pre> en tant qu'utilisateur pouvant exécuter ce fichier.</p>";
+
+

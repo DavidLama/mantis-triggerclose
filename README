@@ -10,4 +10,8 @@ License: Apache v2
 Changelog:
 
  0.1:
-   - Call it through CLI via TriggerCloseCli.php instead of TriggerCloseApi.php
+    - Call it through CLI via TriggerCloseCli.php instead of TriggerCloseApi.php
+    - Change to work with mantis Core 2.0 by Francisco Mancardi https://github.com/fmancardi/mantis-triggerclose
+
+ 0.3:
+   - Add french file and fix the list of users by privilege
